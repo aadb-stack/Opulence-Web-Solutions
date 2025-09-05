@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Opulence Web Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #ffd6fa;
+      --bg2: #c7b7ff;
+      --accent1: #ff6ec7;
+      --accent2: #8e2de2;
+      --muted: #5b4b68;
+      --card: rgba(255,255,255,0.95);
+      --glass: rgba(255,255,255,0.55);
+      --whatsapp: #25D366;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+    body{
+      background: linear-gradient(120deg,var(--bg1),var(--bg2));
+      background-size:400% 400%;
+      animation: bgShift 18s linear infinite;
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    }
+    @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    /* floating particles */
+    .particle{position:fixed;border-radius:50%;opacity:0.14;filter:blur(6px);pointer-events:none;z-index:0}
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px;position:relative;z-index:2}
+
+    /* Header */
+    header{position:fixed;inset:0 0 auto 0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));backdrop-filter:blur(8px);border-radius:0 0 18px 18px;box-shadow:0 8px 30px rgba(0,0,0,0.08);z-index:10;transition:all .35s ease}
+    header.scrolled{background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.7));backdrop-filter:blur(12px);box-shadow:0 8px 40px rgba(0,0,0,0.12)}
+    .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+    .logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(45deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:all .25s}
+    nav a:hover{color:#fff;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 8px 20px rgba(142,45,226,0.12)}
+
+    /* Hero */
+    main.hero{min-height:100vh;display:flex;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .hero-left{padding:60px 20px}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:700;font-size:13px;margin-bottom:18px}
+    h1{font-size:44px;line-height:1.02;margin:0 0 14px;color:transparent;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;font-weight:800}
+    .typing{display:inline-block;color:var(--muted);font-weight:600}
+    p.lead{color:var(--muted);font-size:16px;margin-bottom:20px;max-width:680px}
+    .cta-row{display:flex;gap:14px;align-items:center}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;padding:12px 18px;border-radius:12px;border:none;font-weight:700;cursor:pointer;box-shadow:0 12px 30px rgba(142,45,226,0.12);transition:transform .28s}
+    .btn-primary:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(142,45,226,0.16)}
+    .btn-outline{padding:10px 14px;border-radius:12px;border:2px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.6);cursor:pointer}
+
+    /* Right card */
+    .hero-card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 18px 50px rgba(0,0,0,0.08)}
+    .hero-card b{color:var(--muted)}
+
+    /* Sections */
+    section{padding:120px 0;position:relative}
+    .section-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+    .section-title{font-size:32px;margin-bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;color:transparent;font-weight:800}
+    .lead-muted{color:var(--muted);max-width:900px}
+
+    /* subtle separators */
+    .sep{height:1px;width:60%;margin:36px auto;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,0.15),rgba(142,45,226,0.12));}
+
+    /* services */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+    .service-card{background:var(--card);padding:26px;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,0.06);transform-style:preserve-3d;transition:transform .45s,box-shadow .45s}
+    .service-card h3{margin:0 0 8px;color:var(--accent2)}
+    .service-card p{margin:0 0 12px;color:var(--muted)}
+    .service-card .price{font-size:20px;font-weight:800;color:var(--accent1)}
+    .service-card .get-btn{margin-top:12px;padding:10px 14px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 14px 30px rgba(142,45,226,0.12);transition:transform .25s}
+    .service-card:hover{transform:translateY(-12px) rotateX(3deg) scale(1.02);box-shadow:0 28px 60px rgba(0,0,0,0.12)}
+
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-card{background:var(--card);padding:24px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.06)}
+    .contact-card h3{margin-top:0;color:var(--accent1)}
+    .contact-row{display:flex;flex-direction:column;gap:12px}
+    .contact-row a{color:var(--accent2);text-decoration:none;font-weight:700}
+
+    /* footer */
+    footer{padding:38px 0;text-align:center;color:var(--muted)}
+
+    /* WhatsApp float */
+    .whatsapp{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:14px;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 12px 30px rgba(37,211,102,0.18);z-index:12}
+
+    /* responsive */
+    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:repeat(2,1fr)}.container{padding:18px}}
+    @media(max-width:640px){.services-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.hero-left{padding:28px}.hero-card{display:none}}
+
+    /* subtle reveal animations (will toggle via JS) */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>
+  <!-- particles -->
+  <div id="particles"></div>
+
+  <header id="siteHeader">
+    <div class="brand" onclick="scrollToTop()">
+      <div class="logo">OW</div>
+      <div>
+        <div style="font-weight:800">Opulence Web Solutions</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Luxury web design & dev</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main id="home" class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="eyebrow">Opulence</div>
+          <h1 class="reveal" id="heroTitle">We craft <span class="typing"></span></h1>
+          <p class="lead lead-muted reveal">Premium, vibrant, and conversion-driven websites — tailored to your brand and built to impress.</p>
+          <div class="cta-row reveal">
+            <button class="btn-primary" onclick="scrollToContact()">Build Your Dream Website Now</button>
+            <button class="btn-outline" onclick="scrollToContact()">Get a Quote</button>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div style="font-size:13px;color:var(--muted)">Popular</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+            <div>
+              <div style="font-size:12px;color:var(--muted)">Basic</div>
+              <div style="font-size:20px;font-weight:800;color:var(--accent1)">₹1,599</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--muted)">Premium</div>
+              <div style="font-size:20px;font-weight:800;color:var(--accent2)">₹2,599</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;color:var(--muted);font-size:14px">Responsive sites • SEO basics • Fast delivery</div>
+          <div style="margin-top:16px;text-align:right"><button class="btn-primary" onclick="scrollToContact()">Order Now</button></div>
+        </aside>
+      </div>
+    </main>
+
+    <section id="about" class="reveal">
+      <div class="section-inner">
+        <h2 class="section-title">About Us</h2>
+        <p class="lead-muted">We are designers and developers who love beautiful code and refined user experiences. We blend art and performance to build websites that convert visitors into customers.</p>
+        <div class="sep"></div>
+        <div style="display:flex;gap:18px;align-items:stretch;flex-wrap:wrap;margin-top:18px">
+          <div style="flex:1;min-width:260px;background:var(--card);padding:22px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.06)">
+            <h3 style="margin-top:0;color:var(--accent1)">Our Approach</h3>
+            <p style="color:var(--muted)">Design-first, performance-focused, conversion-ready. We prototype fast and ship even faster.</p>
+          </div>
+          <div style="flex:1;min-width:260px;background:var(--card);padding:22px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.06)">
+            <h3 style="margin-top:0;color:var(--accent2)">Why Us</h3>
+            <p style="color:var(--muted)">Personalized service, clean code, and a premium finish — for brands that demand the best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="section-inner">
+        <h2 class="section-title">Services</h2>
+        <p class="lead-muted">From starter websites to full-fledged brand platforms — we’ve got packages that fit every stage.</p>
+        <div class="sep"></div>
+        <div class="services-grid" id="servicesGrid">
+          <div class="service-card" data-tilt>
+            <h3>Starter Package</h3>
+            <p>1–4 pages • Responsive • SEO basics</p>
+            <div class="price">₹1,599</div>
+            <button class="get-btn" onclick="scrollToContact()">Get Now</button>
+          </div>
+          <div class="service-card" data-tilt>
+            <h3>Premium Package</h3>
+            <p>5–8 pages • Advanced interactions • Analytics</p>
+            <div class="price">₹2,599</div>
+            <button class="get-btn" onclick="scrollToContact()">Get Now</button>
+          </div>
+          <div class="service-card" data-tilt>
+            <h3>Elite Package</h3>
+            <p>Full custom site • Priority support • 3 months maintenance</p>
+            <div class="price">₹4,999</div>
+            <button class="get-btn" onclick="scrollToContact()">Get Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <p class="lead-muted">Ready to start? Reach out via email, phone, or send a quick message — we respond fast.</p>
+        <div class="sep"></div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Get in touch</h3>
+            <p>📧 <a href="mailto:opulencewebsolutions1@gmail.com">opulencewebsolutions1@gmail.com</a></p>
+            <p>📞 <a href="tel:+918237656460">+91 8237656460</a></p>
+            <p>📍 Pune, Maharashtra</p>
+          </div>
+          <div class="contact-card">
+            <h3>Send a message</h3>
+            <form id="contactForm">
+              <input id="n" type="text" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);">
+              <input id="e" type="email" placeholder="Your email" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);">
+              <textarea id="m" placeholder="Tell us about your project" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);min-height:140px"></textarea>
+              <div style="display:flex;gap:12px;align-items:center">
+                <button type="submit" class="get-btn" style="flex:1">Send Message</button>
+                <button type="button" class="get-btn" onclick="quickCall()" style="background:linear-gradient(90deg,var(--accent2),var(--accent1));">Call Now</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Opulence Web Solutions
+    </footer>
+  </div>
+
+  <a class="whatsapp" href="https://wa.me/918237656460" target="_blank" aria-label="WhatsApp">💬</a>
+
+  <script>
+    // hero typing effect
+    const words = ['beautiful websites.', 'conversion-first designs.', 'premium brands.'];
+    let wIdx = 0, cIdx = 0, forward = true;
+    const typingEl = document.querySelector('.typing');
+    function typeTick(){
+      const word = words[wIdx];
+      if(forward){
+        cIdx++;
+        typingEl.textContent = word.slice(0,cIdx);
+        if(cIdx === word.length){forward=false;setTimeout(typeTick,900);return}
+      } else {
+        cIdx--;
+        typingEl.textContent = word.slice(0,cIdx);
+        if(cIdx===0){forward=true;wIdx=(wIdx+1)%words.length}
+      }
+      setTimeout(typeTick,80 + Math.random()*60);
+    }
+    typeTick();
+
+    // reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal, .service-card, .hero-card');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('show');
+      });
+    },{threshold:0.18});
+    revealEls.forEach(el=>io.observe(el));
+
+    // tilt interactions
+    document.querySelectorAll('[data-tilt]').forEach(el=>{
+      el.addEventListener('mousemove', (ev)=>{
+        const r = el.getBoundingClientRect();
+        const dx = (ev.clientX - r.left - r.width/2)/r.width; const dy = (ev.clientY - r.top - r.height/2)/r.height;
+        el.style.transform = `translateY(-12px) rotateX(${(-dy*6)}deg) rotateY(${(dx*6)}deg) scale(1.02)`;
+      });
+      el.addEventListener('mouseleave', ()=>{el.style.transform='translateY(-12px) rotateX(0deg) rotateY(0deg) scale(1.0)'});
+    });
+
+    // header shade on scroll
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll',()=>{ if(window.scrollY>40) header.classList.add('scrolled'); else header.classList.remove('scrolled'); });
+
+    // particles (gold sparks rising)
+    const particlesRoot = document.getElementById('particles');
+    function rand(min,max){return Math.random()*(max-min)+min}
+    for(let i=0;i<18;i++){
+      const d = document.createElement('div'); d.className='particle';
+      const size = rand(6,24); d.style.width = size+'px'; d.style.height = size+'px';
+      d.style.left = (rand(2,98))+'%'; d.style.top = (rand(10,90))+'%';
+      d.style.background = (Math.random()>0.5? 'rgba(255,182,193,0.28)':'rgba(142,45,226,0.18)');
+      d.style.animation = `float${i} ${rand(10,28)}s linear infinite`;
+      d.style.opacity = rand(0.06,0.22);
+      particlesRoot.appendChild(d);
+      const kf = `@keyframes float${i}{0%{transform:translateY(0) translateX(0) scale(0.6)}50%{transform:translateY(${rand(-30,-120)}vh) translateX(${rand(-8,8)}vw) scale(1)}100%{transform:translateY(${rand(-140,-240)}vh) translateX(${rand(-20,20)}vw) scale(0.6)}}`;
+      const styleSheet = document.createElement('style'); styleSheet.textContent = kf; document.head.appendChild(styleSheet);
+    }
+
+    // contact quick functions
+    document.getElementById('contactForm').addEventListener('submit',(e)=>{e.preventDefault();alert('Thanks! We received your message. We will contact you soon.');e.target.reset();});
+    function scrollToContact(){document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})}
+    function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+    function quickCall(){window.location.href='tel:+918237656460'}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
