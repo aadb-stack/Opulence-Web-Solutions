@@ -206,55 +206,180 @@ toggleBtn.addEventListener('click', () => {
 
   <!-- SERVICES -->
   <section id="services" class="section services">
-    <div class="container">
-      <h2 class="section-title">Our Packages</h2>
-      <p class="section-lead">Choose a package that suits your scale — every site gets our premium touch.</p>
+  <div class="container">
+    <h2 class="section-title">Our Packages</h2>
+    <p class="section-lead">Choose a package that suits your scale — every site gets our premium touch.</p>
 
-      <div class="cards-grid">
-        <article class="card">
-          <div class="card-head">
-            <h3>Basic</h3>
-            <p class="price">₹ 1,999</p>
-          </div>
-          <ul class="features">
-            <li>1–4 pages</li>
-            <li>10 days maintenance</li>
-            <li>Responsive design</li>
-            <li>Essential SEO setup</li>
-          </ul>
-          <div class="card-foot">Perfect for small showcases & portfolios</div>
-        </article>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-head">
+          <h3>Basic</h3>
+          <p class="price">₹ 1,999</p>
+        </div>
+        <ul class="features">
+          <li>1–4 pages</li>
+          <li>10 days maintenance</li>
+          <li>Responsive design</li>
+          <li>Essential SEO setup</li>
+        </ul>
+        <div class="card-foot">
+          <p>Perfect for medium scale businesses </p>
+          <a href="#contact" class="btn-get">Get Now</a>
+        </div>
+      </article>
 
-        <article class="card popular">
-          <div class="card-head">
-            <h3>Standard</h3>
-            <p class="price">₹ 2,499</p>
-          </div>
-          <ul class="features">
-            <li>5–8 pages</li>
-            <li>1 month maintenance</li>
-            <li>Advanced interactions</li>
-            <li>Contact & lead forms</li>
-          </ul>
-          <div class="card-foot">Best for growing businesses</div>
-        </article>
+      <article class="card popular">
+        <div class="card-head">
+          <h3>Standard</h3>
+          <p class="price">₹ 2,499</p>
+        </div>
+        <ul class="features">
+          <li>5–8 pages</li>
+          <li>1 month maintenance</li>
+          <li>Advanced interactions</li>
+          <li>Contact & lead forms</li>
+        </ul>
+        <div class="card-foot">
+          <p>Best for growing businesses</p>
+          <a href="#contact" class="btn-get">Get Now</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-head">
-            <h3>Premium</h3>
-            <p class="price">₹ 4,499</p>
-          </div>
-          <ul class="features">
-            <li>10+ pages</li>
-            <li>3 months maintenance</li>
-            <li>Luxury-grade UI & animations</li>
-            <li>Custom integrations</li>
-          </ul>
-          <div class="card-foot">Crafts a luxury website — full service</div>
-        </article>
-      </div>
+      <article class="card">
+        <div class="card-head">
+          <h3>Premium</h3>
+          <p class="price">₹ 4,499</p>
+        </div>
+        <ul class="features">
+          <li>10+ pages</li>
+          <li>3 months maintenance</li>
+          <li>Luxury-grade UI & animations</li>
+          <li>Custom integrations</li>
+        </ul>
+        <div class="card-foot">
+          <p>Crafts a luxury website — full service</p>
+          <a href="#contact" class="btn-get">Get Now</a>
+        </div>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+/* Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card-head h3 {
+  margin: 0;
+  color: #ffcc00;
+  font-size: 1.4rem;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  color: #ddd;
+}
+
+.features li {
+  margin: 6px 0;
+}
+
+/* Card foot */
+.card-foot {
+  margin-top: auto;
+  text-align: left; /* default desktop alignment */
+}
+
+.card-foot p {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* Button Style */
+.btn-get {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffcc00;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn-get:hover {
+  background: #e6b800;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+/* Hover animation for desktop */
+@media (min-width: 769px) {
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
+
+  .card:hover .btn-get {
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+    text-align: center; /* center everything */
+  }
+
+  .card-foot {
+    text-align: center;
+  }
+
+  .btn-get {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card:active .btn-get {
+    background: #e6b800;
+    color: #fff;
+    transform: scale(1.05);
+  }
+}
+</style>
 <!-- MAINTENANCE & HOSTING -->
   <section id="maintenance" class="section maintenance">
     <div class="container">
