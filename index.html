@@ -430,28 +430,174 @@ toggleBtn.addEventListener('click', () => {
   </section>
   <!-- CONTACT -->
   <section id="contact" class="section contact">
-    <div class="container">
-      <h2 class="section-title">Contact Us</h2>
-      <p class="section-lead">Let's build something luxurious together.</p>
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-lead">Let's build something luxurious together.</p>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Email</h3>
-          <p><a href="mailto:opulencewebsolutions01@gmail.com">opulencewebsolutions01@gmail.com</a></p>
-        </div>
-        <div class="contact-card">
-          <h3>Phone</h3>
-          <p><a href="tel:+918237656460">+91 82376 56460</a></p>
-        </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Email:</h3>
+        <hr class="underline">
+        <p class="email"><a href="mailto:contact@opulencewebsolutions.in">contact@opulencewebsolutions.in</a></p>
       </div>
 
-      <p class="small">Give us a call-Dont hesitate</p>
-    </div>
-  </section>
+      <div class="contact-card">
+        <h3>Gmail:</h3>
+        <hr class="underline">
+        <p class="email"><a href="mailto:opulencewebsolutions01@gmail.com">opulencewebsolutions01@gmail.com</a></p>
+      </div>
 
-  <footer class="footer">
-    <small>© <span id="year"></span> Opulence Web Solutions — All rights reserved.</small>
-  </footer>
+      <div class="contact-card">
+        <h3>Phone:</h3>
+        <hr class="underline">
+        <p><a href="tel:+918237656460">+91 82376 56460</a></p>
+      </div>
+    </div>
+
+    <p class="small"><strong>Give us a call — Don’t hesitate</strong></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <small>© <span id="year"></span> Opulence Web Solutions — All rights reserved.</small>
+</footer>
+
+<style>
+/* Full-width dark background */
+.contact {
+  width: 100%;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 35px 25px;
+  border-radius: 16px;
+  min-width: 250px;
+  max-width: 320px;
+  flex: 1;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+  word-break: break-word;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+  border-color: #ffcc00;
+}
+
+.contact-card h3 {
+  color: #ffcc00;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.underline {
+  border: 0;
+  border-bottom: 2px solid #ffcc00;
+  margin-bottom: 10px;
+  width: 50px;
+}
+
+/* Smaller email font, one-line style */
+.contact-card p.email {
+  font-size: 0.85rem;
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.contact-card a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: #ffcc00;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-lead {
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.small {
+  margin-top: 35px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.footer {
+  background: #111;
+  color: #aaa;
+  padding: 18px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.footer small {
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .contact-card p.email {
+    font-size: 0.9rem; /* slightly larger on smaller screens */
+    white-space: normal; /* wrap if needed */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .underline {
+    width: 40px;
+  }
+
+  .contact-card p.email {
+    font-size: 0.95rem;
+  }
+}
+</style>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <!-- TYPEWRITER JS -->
   <script>
